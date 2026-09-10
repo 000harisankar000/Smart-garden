@@ -7,4 +7,4 @@ LDR = p35
 soil moisture = p32
 humidity and temperature = p4
 
-if the water level sensor wont work properly remove it :)
+if the float level wont work properly, remove it :)
