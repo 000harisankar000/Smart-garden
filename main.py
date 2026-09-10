@@ -6,9 +6,7 @@ import time
 import json
 import ssd1306
 
-# ==========================================
-# CONFIGURATION & PINS
-# ==========================================
+# config pins
 AP_SSID = "smart-garden"
 AP_PASSWORD = "enikariyilla" # Must be at least 8 characters
 
@@ -21,9 +19,7 @@ PIN_MOTOR         = 26  # Relay module triggering the Water Pump
 PIN_SDA           = 21  # OLED SDA
 PIN_SCL           = 22  # OLED SCL
 
-# ==========================================
-# INITIALIZATION
-# ==========================================
+# initialize
 # 1. Motor / Relay (Start OFF)
 motor = machine.Pin(PIN_MOTOR, machine.Pin.OUT)
 motor.value(0)
@@ -52,9 +48,7 @@ except Exception as e:
     print("OLED Init Error:", e)
     oled = None
 
-# ==========================================
-# HTML FRONTEND 
-# ==========================================
+# webpage
 HTML_PAGE = """<!DOCTYPE html>
 <html>
 <head>
@@ -131,9 +125,7 @@ HTML_PAGE = """<!DOCTYPE html>
 </html>
 """
 
-# ==========================================
-# CORE LOGIC
-# ==========================================
+# logic
 def host_wifi():
     sta = network.WLAN(network.STA_IF)
     sta.active(False)
@@ -192,9 +184,7 @@ def update_oled_display(data, ip):
     except Exception as e:
         print("OLED Draw Error:", e)
 
-# ==========================================
-# NON-BLOCKING SERVER LOOP
-# ==========================================
+# loop
 def start_server():
     ip = host_wifi()
     
